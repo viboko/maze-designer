@@ -6,14 +6,14 @@
     <title>Maze Designer</title>
     <meta
       name="description"
-      content="Make a random maze, choose its size, walls and colours, and download it as a PNG or SVG for your Scratch project."
+      content="Make a random maze, choose its size, walls and colours, and download it as a PNG or SVG image."
     />
     <link rel="canonical" href="https://maze.viboko.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Maze Designer" />
     <meta
       property="og:description"
-      content="Make a random maze and download it as a PNG or SVG for your Scratch project."
+      content="Make a random maze and download it as a PNG or SVG image."
     />
     <meta property="og:url" content="https://maze.viboko.dev/" />
     <meta name="theme-color" content="#7a3ff2" />
@@ -33,7 +33,7 @@
   <body>
     <header>
       <h1>Maze Designer</h1>
-      <p>Make a random maze for your Scratch project.</p>
+      <p>Make a random maze and download it as an image.</p>
     </header>
 
     <main>
@@ -44,23 +44,27 @@
         </div>
       </div>
 
-      <div class="toolbar">
-        <label class="field">
-          Width
-          <input id="columns" type="number" step="1" inputmode="numeric" />
-        </label>
-        <label class="field">
-          Height
-          <input id="rows" type="number" step="1" inputmode="numeric" />
-        </label>
-        <label class="field">
-          Margin
-          <input id="margin" type="number" step="1" inputmode="numeric" />
-        </label>
-        <label class="field">
-          Wall thickness
-          <input id="wall-thickness" type="number" step="1" inputmode="numeric" />
-        </label>
+      <div class="toolbar sliders">
+        <div class="slider">
+          <label for="columns">Width</label>
+          <input id="columns" type="range" step="1" />
+          <output id="columns-value" for="columns"></output>
+        </div>
+        <div class="slider">
+          <label for="rows">Height</label>
+          <input id="rows" type="range" step="1" />
+          <output id="rows-value" for="rows"></output>
+        </div>
+        <div class="slider">
+          <label for="margin">Margin</label>
+          <input id="margin" type="range" step="1" />
+          <output id="margin-value" for="margin"></output>
+        </div>
+        <div class="slider">
+          <label for="wall-thickness">Wall thickness</label>
+          <input id="wall-thickness" type="range" step="1" />
+          <output id="wall-thickness-value" for="wall-thickness"></output>
+        </div>
       </div>
 
       <div class="toolbar">
@@ -78,9 +82,9 @@
       </div>
 
       <p class="help">
-        Width and height are in squares; margin and wall thickness are in pixels on the 480 × 360
-        Scratch stage. Every time you change a setting you get a brand new random maze. The start is
-        the top-right square and the end is the bottom-left square.
+        The image is 480 × 360 pixels (the PNG is saved at double resolution, 960 × 720). Every time
+        you change a setting you get a brand new random maze. The start is the top-right square and
+        the end is the bottom-left square.
       </p>
     </main>
 

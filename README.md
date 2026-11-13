@@ -1,22 +1,22 @@
 # Maze Designer
 
-A single-page web app for making a random maze to use as the background of a
-Scratch game. Choose how many squares wide and tall it is, the margin, how
-thick the walls are, and the colours of the walls and of the start and end
-squares, then download it as a PNG or SVG the same size as the Scratch stage
-(480 × 360). Built with [Vite](https://vite.dev) and TypeScript.
+A single-page web app for making random maze images. Choose how many squares
+wide and tall the maze is, the margin, how thick the walls are, and the colours
+of the walls and of the start and end squares, then download it as a PNG or
+SVG. Images are 480 × 360 (the PNG is saved at 2×, 960 × 720), the same size as
+the Scratch stage. Built with [Vite](https://vite.dev) and TypeScript.
 
 Live at <https://maze.viboko.dev>.
 
 Every time you change a setting you get a brand new random maze. Mazes are made
-with the same "binary tree" algorithm as the Maze projects at Gravesend Code
-Club: for every square except those in the top row and the right-hand column,
-flip a coin and put a wall either along its top or down its right-hand side.
-That always leaves exactly one route between any two squares. The start is the
-top-right square and the end is the bottom-left square.
+with the "binary tree" algorithm: for every square except those in the top row
+and the right-hand column, flip a coin and put a wall either along its top or
+down its right-hand side. That always leaves exactly one route between any two
+squares. The start is the top-right square and the end is the bottom-left
+square.
 
 The walls, start and end are each a single flat colour (no anti-aliasing), so a
-game can detect them with Scratch's `touching color` block.
+game can detect them by colour.
 
 ## Running locally
 

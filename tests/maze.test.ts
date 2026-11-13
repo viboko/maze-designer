@@ -74,7 +74,7 @@ describe('generateMaze', () => {
   it.each([
     [2, 2],
     [10, 8],
-    [60, 45],
+    [40, 30],
     [3, 17],
   ])('makes a perfect %i × %i maze: every square reachable, one route between any two', (c, r) => {
     for (let seed = 0; seed < 20; seed++) {

@@ -33,6 +33,20 @@ const numericInputs: Record<NumericSetting, HTMLInputElement> = {
   columns: $('columns'),
   rows: $('rows'),
 };
+const UNITS: Record<NumericSetting, string> = {
+  margin: 'px',
+  wallThickness: 'px',
+  columns: 'squares',
+  rows: 'squares',
+};
+
+const showValue = (key: NumericSetting, value: number | string): void => {
+  const output = document.querySelector<HTMLOutputElement>(
+    `output[for="${numericInputs[key].id}"]`,
+  )!;
+  output.value = `${value} ${UNITS[key]}`;
+};
+
 const colourInputs: Record<ColourSetting, HTMLInputElement> = {
   wallColour: $('wall-colour'),
   startColour: $('start-colour'),
@@ -65,6 +79,7 @@ function redraw(): void {
 function syncInputs(): void {
   (Object.keys(numericInputs) as NumericSetting[]).forEach((key) => {
     numericInputs[key].value = String(settings[key]);
+    showValue(key, settings[key]);
   });
   (Object.keys(colourInputs) as ColourSetting[]).forEach((key) => {
     colourInputs[key].value = settings[key];
@@ -74,6 +89,8 @@ function syncInputs(): void {
 (Object.entries(numericInputs) as [NumericSetting, HTMLInputElement][]).forEach(([key, input]) => {
   input.min = String(LIMITS[key].min);
   input.max = String(LIMITS[key].max);
+  // Show the number while dragging; make the new maze when the slider is let go.
+  input.addEventListener('input', () => showValue(key, input.value));
   input.addEventListener('change', () => {
     settings = { ...settings, [key]: clampSetting(key, input.value, settings[key]) };
     syncInputs();

@@ -1,4 +1,4 @@
-/** Image size, matching the Scratch stage. All maze geometry is in these units. */
+/** Image size (the same as the Scratch stage). All maze geometry is in these units. */
 export const CANVAS_WIDTH = 480;
 export const CANVAS_HEIGHT = 360;
 
@@ -25,10 +25,10 @@ export interface Range {
 }
 
 export const LIMITS: Record<NumericSetting, Range> = {
-  margin: { min: 0, max: 100 },
+  margin: { min: 0, max: 80 },
   wallThickness: { min: 1, max: 20 },
-  columns: { min: 2, max: 60 },
-  rows: { min: 2, max: 45 },
+  columns: { min: 2, max: 40 },
+  rows: { min: 2, max: 30 },
 };
 
 /** The defaults match the Maze projects at Gravesend Code Club: 10 × 8 squares, purple walls. */

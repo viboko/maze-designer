@@ -38,8 +38,8 @@ describe('layoutMaze', () => {
 
   it.each([
     settings(),
-    settings({ margin: 0, wallThickness: 1, columns: 60, rows: 45 }),
-    settings({ margin: 100, wallThickness: 20, columns: 2, rows: 2 }),
+    settings({ margin: 0, wallThickness: 1, columns: 40, rows: 30 }),
+    settings({ margin: 80, wallThickness: 20, columns: 2, rows: 2 }),
     settings({ margin: 7, wallThickness: 3, columns: 13, rows: 29 }),
   ])('keeps the maze inside the margin, centred: %o', (s) => {
     const layout = layoutMaze(mazeFor(s), s)!;
@@ -108,7 +108,7 @@ describe('layoutMaze', () => {
   });
 
   it('returns null when the squares are too small to leave a path', () => {
-    const s = settings({ margin: 100, wallThickness: 20, columns: 20, rows: 20 });
+    const s = settings({ margin: 80, wallThickness: 20, columns: 20, rows: 20 });
     expect(cellSize(s) - s.wallThickness).toBeLessThan(MIN_PASSAGE);
     expect(layoutMaze(mazeFor(s), s)).toBeNull();
   });
