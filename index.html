@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Designer</title>
+    <meta
+      name="description"
+      content="Make a random maze, choose its size, walls and colours, and download it as a PNG or SVG image."
+    />
+    <link rel="canonical" href="https://maze.viboko.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Maze Designer" />
+    <meta
+      property="og:description"
+      content="Make a random maze and download it as a PNG or SVG image."
+    />
+    <meta property="og:url" content="https://maze.viboko.dev/" />
+    <meta name="theme-color" content="#7a3ff2" />
+    <meta name="apple-mobile-web-app-title" content="Maze" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <script
+      data-goatcounter="https://viboko-maze.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Maze Designer</h1>
+      <p>Make a random maze and download it as an image.</p>
+    </header>
+
+    <main>
+      <div class="canvas-wrap">
+        <canvas id="maze-canvas" role="img" aria-label="Maze"></canvas>
+        <div id="hint" class="hint" hidden>
+          Too many squares to fit! Try fewer squares, a smaller margin or thinner walls.
+        </div>
+      </div>
+
+      <div class="toolbar sliders">
+        <div class="slider">
+          <label for="columns">Width</label>
+          <input id="columns" type="range" step="1" />
+          <output id="columns-value" for="columns"></output>
+        </div>
+        <div class="slider">
+          <label for="rows">Height</label>
+          <input id="rows" type="range" step="1" />
+          <output id="rows-value" for="rows"></output>
+        </div>
+        <div class="slider">
+          <label for="margin">Margin</label>
+          <input id="margin" type="range" step="1" />
+          <output id="margin-value" for="margin"></output>
+        </div>
+        <div class="slider">
+          <label for="wall-thickness">Wall thickness</label>
+          <input id="wall-thickness" type="range" step="1" />
+          <output id="wall-thickness-value" for="wall-thickness"></output>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <label class="field">Walls <input id="wall-colour" type="color" /></label>
+        <label class="field">Start <input id="start-colour" type="color" /></label>
+        <label class="field">End <input id="end-colour" type="color" /></label>
+        <span class="spacer"></span>
+        <button id="new-maze" type="button">New maze</button>
+      </div>
+
+      <div class="toolbar">
+        <span class="label">Download</span>
+        <button type="button" data-download="png" class="primary">PNG</button>
+        <button type="button" data-download="svg" class="primary">SVG</button>
+      </div>
+
+      <p class="help">
+        The image is 480 × 360 pixels (the PNG is saved at double resolution, 960 × 720). Every time
+        you change a setting you get a brand new random maze. The start is the top-right square and
+        the end is the bottom-left square.
+      </p>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

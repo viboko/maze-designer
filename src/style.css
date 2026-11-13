@@ -1,0 +1,181 @@
+:root {
+  --bg: #f4f5f2;
+  --fg: #1f2421;
+  --muted: #5d665f;
+  --panel: #fff;
+  --border: #d5d9d3;
+  --accent: #5b2bc9;
+  --accent-fg: #fff;
+
+  color-scheme: light dark;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171a18;
+    --fg: #e7ebe6;
+    --muted: #9aa49c;
+    --panel: #222624;
+    --border: #3a403b;
+    --accent: #6d3be0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header,
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+header p,
+.help {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.help {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.canvas-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-height: 70vh;
+  max-width: calc(70vh * 4 / 3);
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#maze-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hint {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  padding: 0 24px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #1f2421;
+}
+
+.hint[hidden] {
+  display: none;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.field,
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sliders {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 32px;
+}
+
+@media (width <= 640px) {
+  .sliders {
+    grid-template-columns: 1fr;
+  }
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 7.5em 1fr 5.5em;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.slider output {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.label {
+  font-weight: 600;
+}
+
+.spacer {
+  flex: 1;
+}
+
+input[type='color'] {
+  width: 2.5em;
+  height: 2em;
+  padding: 2px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+button {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
