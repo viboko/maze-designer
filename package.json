@@ -18,7 +18,7 @@
     "eslint": "^10.14.0",
     "eslint-plugin-yml": "^3.10.0",
     "globals": "^17.14.0",
-    "html-validate": "^11.21.0",
+    "html-validate": "^11.21.1",
     "http-server": "^14.1.1",
     "jsdom": "^31.0.0",
     "markdownlint-cli": "^0.50.0",
